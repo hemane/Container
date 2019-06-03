@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+body, html{
+	font-family: Titillium Web;
+	text-align: center;
+	font-size: 25px;
+	background: #161618;
+	color: white;
+	padding: 0;
+	padding-top: 40px;
+}
+span.headline{
+	font-size: 46px;
+}
+.waves{
+	background: url('waves.svg');
+	position: fixed;
+	bottom: 0px;
+	left: 0;
+	height: 120px;
+	background-size: 600px 120px;
+	width: 100%;
+	animation: waves 10s linear infinite;
+}
+@keyframes waves{
+	0%{background-position-x: 0%}
+	100%{background-position-x: 100%;}
+}

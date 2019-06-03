@@ -1,0 +1,25 @@
+version: 3
+services:
+    api:
+        image: api
+            depends_on:
+                - mysql
+            deploy:
+                restart_policy: 
+                    conditopn: on-failure
+            ports:
+                - "88:80"
+    mysql:
+        image: mysql
+            deploy:
+                restart_policy:
+                    condition: on-failure
+            ports:
+                - "3306:3306"
+    nginx:
+        image: nginx
+        deploy:
+            restart_policy:
+                    condition: on-failure
+        ports:
+            - "80:80"
