@@ -1,16 +1,25 @@
 version: "3"
 services:
     api:
+        restart: always
         image: api
+        environment:
+            - ASPNETCORE_URLS=http://localhost:5000
+        volumes:
+            - /home/pi/docker/api/appsettings.json:/software/appsettings.json
         depends_on:
             - mysql
         ports:
             - "88:80"
     mysql:
+        restart: always
         image: mysql
+        volumes:
+            - /home/pi/docker/db/mysql:/var/lib/mysql
         ports:
             - "3306:3306"
     nginx:
+        restart: always
         image: nginx
         volumes:
             - /home/pi/docker/webserver/normal:/website/normal
