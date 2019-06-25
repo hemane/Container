@@ -11,4 +11,7 @@ EXPOSE 3306
 
 STOPSIGNAL SIGTERM
 
-CMD ["/usr/bin/mysqld_safe"]
+COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
